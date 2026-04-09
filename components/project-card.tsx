@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 
@@ -12,8 +13,16 @@ interface ProjectCardProps {
 
 export function ProjectCard({ id, title, description, team }: ProjectCardProps) {
   return (
-    <Card className="group bg-card border-border transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-      <CardContent className="pt-6">
+    <Card className="group bg-card border-border transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden">
+      <div className="relative w-full h-40 bg-muted">
+        <Image
+          src={`/placeholder.svg?height=160&width=320&text=${id}`}
+          alt={`${title} project thumbnail`}
+          fill
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
+      <CardContent className="pt-4">
         <div className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">
           {id}
         </div>

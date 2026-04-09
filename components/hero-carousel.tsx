@@ -43,7 +43,7 @@ export function HeroCarousel() {
       {/* Overlay Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 tracking-tight text-balance">
-          Designing Novel Interactions 2026
+          Cybernetic Futures 2026
         </h1>
         <p className="text-lg md:text-xl lg:text-2xl text-primary-foreground/90 font-light">
           University of Melbourne Showcase
