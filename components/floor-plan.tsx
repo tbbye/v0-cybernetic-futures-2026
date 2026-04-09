@@ -15,7 +15,7 @@ function LightningBolt({ className, style }: { className?: string; style?: React
 
 export function FloorPlan() {
   return (
-    <section className="py-6 px-4 bg-primary relative overflow-hidden">
+    <section className="py-6 px-4 bg-primary/90 relative overflow-hidden">
       {/* Background Lightning Bolts - Yellow, Erratic, Various Sizes and Orientations */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Large bolts */}

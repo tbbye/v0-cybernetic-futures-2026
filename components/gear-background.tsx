@@ -7,7 +7,7 @@ export function GearBackground() {
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
       {/* Large gear top right */}
       <svg
-        className="absolute -top-20 -right-20 w-96 h-96 text-slate-400 opacity-[0.25] animate-spin-slow"
+        className="absolute -top-20 -right-20 w-96 h-96 text-gray-500 opacity-[0.40] animate-spin-slow"
         viewBox="0 0 100 100"
         fill="currentColor"
       >
@@ -16,7 +16,7 @@ export function GearBackground() {
 
       {/* Large gear bottom left */}
       <svg
-        className="absolute -bottom-24 -left-24 w-[28rem] h-[28rem] text-slate-500 opacity-[0.22] animate-spin-slow-reverse"
+        className="absolute -bottom-24 -left-24 w-[28rem] h-[28rem] text-gray-600 opacity-[0.35] animate-spin-slow-reverse"
         viewBox="0 0 100 100"
         fill="currentColor"
       >
@@ -25,7 +25,7 @@ export function GearBackground() {
 
       {/* Medium gear center right */}
       <svg
-        className="absolute top-1/2 -right-12 w-56 h-56 text-slate-400 opacity-[0.24] animate-spin-slow"
+        className="absolute top-1/2 -right-12 w-56 h-56 text-gray-500 opacity-[0.38] animate-spin-slow"
         viewBox="0 0 100 100"
         fill="currentColor"
       >
@@ -34,7 +34,7 @@ export function GearBackground() {
 
       {/* Medium gear top left */}
       <svg
-        className="absolute top-32 -left-16 w-48 h-48 text-slate-500 opacity-[0.20] animate-spin-slow-reverse"
+        className="absolute top-32 -left-16 w-48 h-48 text-gray-600 opacity-[0.32] animate-spin-slow-reverse"
         viewBox="0 0 100 100"
         fill="currentColor"
       >
@@ -43,7 +43,7 @@ export function GearBackground() {
 
       {/* Small gear top center */}
       <svg
-        className="absolute top-20 left-1/3 w-32 h-32 text-slate-400 opacity-[0.18] animate-spin-slow"
+        className="absolute top-20 left-1/3 w-32 h-32 text-gray-500 opacity-[0.30] animate-spin-slow"
         viewBox="0 0 100 100"
         fill="currentColor"
       >
@@ -52,7 +52,7 @@ export function GearBackground() {
 
       {/* Small gear bottom right */}
       <svg
-        className="absolute bottom-40 right-20 w-40 h-40 text-slate-500 opacity-[0.20] animate-spin-slow-reverse"
+        className="absolute bottom-40 right-20 w-40 h-40 text-gray-600 opacity-[0.32] animate-spin-slow-reverse"
         viewBox="0 0 100 100"
         fill="currentColor"
       >
@@ -61,7 +61,7 @@ export function GearBackground() {
 
       {/* Tiny gear center left */}
       <svg
-        className="absolute top-2/3 left-20 w-24 h-24 text-slate-400 opacity-[0.18] animate-spin-slow"
+        className="absolute top-2/3 left-20 w-24 h-24 text-gray-500 opacity-[0.28] animate-spin-slow"
         viewBox="0 0 100 100"
         fill="currentColor"
       >
@@ -70,7 +70,7 @@ export function GearBackground() {
 
       {/* Medium gear bottom center */}
       <svg
-        className="absolute -bottom-8 left-1/2 w-44 h-44 text-slate-500 opacity-[0.20] animate-spin-slow"
+        className="absolute -bottom-8 left-1/2 w-44 h-44 text-gray-600 opacity-[0.32] animate-spin-slow"
         viewBox="0 0 100 100"
         fill="currentColor"
       >
