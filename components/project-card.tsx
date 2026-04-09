@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
@@ -11,7 +12,16 @@ interface ProjectCardProps {
   team: string
 }
 
+function getFirstSentence(text: string): string {
+  const match = text.match(/^[^.!?]*[.!?]/)
+  return match ? match[0] : text
+}
+
 export function ProjectCard({ id, title, description, team }: ProjectCardProps) {
+  const [isExpanded, setIsExpanded] = useState(false)
+  const firstSentence = getFirstSentence(description)
+  const hasMoreContent = description.length > firstSentence.length
+
   return (
     <Card className="group bg-card border-border transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden">
       <div className="relative w-full h-40 bg-muted">
@@ -30,21 +40,29 @@ export function ProjectCard({ id, title, description, team }: ProjectCardProps) 
           {title}
         </h3>
         <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          {description}
+          {isExpanded ? description : (
+            <>
+              {firstSentence}
+              {hasMoreContent && <span className="text-muted-foreground/60">...</span>}
+            </>
+          )}
         </p>
         <p className="text-xs text-muted-foreground">
           <span className="font-medium">Team:</span> {team}
         </p>
       </CardContent>
-      <CardFooter className="pt-0">
-        <Button 
-          variant="outline" 
-          size="sm"
-          className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-        >
-          Read more
-        </Button>
-      </CardFooter>
+      {hasMoreContent && (
+        <CardFooter className="pt-0">
+          <Button 
+            variant="outline" 
+            size="sm"
+            className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            {isExpanded ? "Show less" : "Read more"}
+          </Button>
+        </CardFooter>
+      )}
     </Card>
   )
 }

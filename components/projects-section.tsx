@@ -20,7 +20,7 @@ const gameProjects = Array.from({ length: 20 }, (_, i) => ({
 
 export function ProjectsSection() {
   return (
-    <section className="py-8 px-4 bg-white">
+    <section className="py-8 px-4 bg-white/90">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Column - DNI Projects */}
