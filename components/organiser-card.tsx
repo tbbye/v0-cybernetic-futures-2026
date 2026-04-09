@@ -6,10 +6,10 @@ interface OrganiserCardProps {
 export function OrganiserCard({ name, bio }: OrganiserCardProps) {
   return (
     <div className="text-center">
-      <h3 className="text-lg font-semibold text-white mb-2">
+      <h3 className="text-lg font-semibold text-foreground mb-2">
         {name}
       </h3>
-      <p className="text-sm text-white/70 leading-relaxed">
+      <p className="text-sm text-muted-foreground leading-relaxed">
         {bio}
       </p>
     </div>

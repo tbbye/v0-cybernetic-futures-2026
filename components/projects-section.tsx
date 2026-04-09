@@ -18,7 +18,7 @@ const gameProjects = Array.from({ length: 20 }, (_, i) => ({
 
 export function ProjectsSection() {
   return (
-    <section className="py-16 px-4">
+    <section className="py-20 px-4 min-h-screen">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Column - DNI Projects */}
@@ -26,7 +26,7 @@ export function ProjectsSection() {
             <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-foreground sticky top-0 bg-background py-4 z-10 border-b border-border">
               Designing Novel Interactions
             </h2>
-            <div className="h-[600px] overflow-y-auto pr-2 space-y-4 scrollbar-thin">
+            <div className="h-[700px] overflow-y-auto pr-2 space-y-4 scrollbar-thin">
               {dniProjects.map((project) => (
                 <ProjectCard
                   key={project.id}
@@ -44,7 +44,7 @@ export function ProjectsSection() {
             <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-foreground sticky top-0 bg-background py-4 z-10 border-b border-border">
               Game Design
             </h2>
-            <div className="h-[600px] overflow-y-auto pr-2 space-y-4 scrollbar-thin">
+            <div className="h-[700px] overflow-y-auto pr-2 space-y-4 scrollbar-thin">
               {gameProjects.map((project) => (
                 <ProjectCard
                   key={project.id}
