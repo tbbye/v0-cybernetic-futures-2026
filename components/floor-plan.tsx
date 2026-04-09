@@ -1,11 +1,12 @@
 import Image from "next/image"
 
-function LightningBolt({ className }: { className?: string }) {
+function LightningBolt({ className, style }: { className?: string; style?: React.CSSProperties }) {
   return (
     <svg
       viewBox="0 0 24 24"
       fill="currentColor"
       className={className}
+      style={style}
     >
       <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
     </svg>
@@ -15,17 +16,29 @@ function LightningBolt({ className }: { className?: string }) {
 export function FloorPlan() {
   return (
     <section className="py-6 px-4 bg-primary relative overflow-hidden">
-      {/* Background Lightning Bolts - Yellow and Animated */}
+      {/* Background Lightning Bolts - Yellow, Erratic, Various Sizes and Orientations */}
       <div className="absolute inset-0 pointer-events-none">
-        <LightningBolt className="absolute top-4 left-8 w-12 h-12 text-yellow-400/60 animate-bounce-float-1" />
-        <LightningBolt className="absolute top-8 right-12 w-8 h-8 text-yellow-300/50 animate-bounce-float-2" />
-        <LightningBolt className="absolute bottom-6 left-16 w-10 h-10 text-yellow-400/40 animate-bounce-float-3" />
-        <LightningBolt className="absolute bottom-4 right-8 w-14 h-14 text-yellow-300/60 animate-bounce-float-1" />
-        <LightningBolt className="absolute top-1/2 left-4 w-6 h-6 text-yellow-400/35 animate-bounce-float-2" />
-        <LightningBolt className="absolute top-1/3 right-4 w-10 h-10 text-yellow-300/45 animate-bounce-float-3" />
-        <LightningBolt className="absolute bottom-1/3 left-1/4 w-8 h-8 text-yellow-400/40 animate-bounce-float-1" />
-        <LightningBolt className="absolute top-6 left-1/3 w-6 h-6 text-yellow-300/50 animate-bounce-float-2" />
-        <LightningBolt className="absolute bottom-8 right-1/4 w-12 h-12 text-yellow-400/45 animate-bounce-float-3" />
+        {/* Large bolts */}
+        <LightningBolt className="absolute top-2 left-[5%] w-16 h-16 text-yellow-400/55 animate-bounce-float-1" style={{ transform: 'rotate(-25deg)' }} />
+        <LightningBolt className="absolute bottom-3 right-[8%] w-20 h-20 text-yellow-300/50 animate-bounce-float-2" style={{ transform: 'rotate(35deg)' }} />
+        
+        {/* Medium bolts */}
+        <LightningBolt className="absolute top-[15%] right-[15%] w-10 h-10 text-yellow-400/45 animate-bounce-float-3" style={{ transform: 'rotate(70deg)' }} />
+        <LightningBolt className="absolute bottom-[20%] left-[12%] w-12 h-12 text-yellow-300/55 animate-bounce-float-1" style={{ transform: 'rotate(-50deg)' }} />
+        <LightningBolt className="absolute top-[40%] left-[3%] w-9 h-9 text-yellow-400/40 animate-bounce-float-2" style={{ transform: 'rotate(120deg)' }} />
+        <LightningBolt className="absolute top-[30%] right-[5%] w-14 h-14 text-yellow-300/50 animate-bounce-float-3" style={{ transform: 'rotate(-85deg)' }} />
+        
+        {/* Small bolts */}
+        <LightningBolt className="absolute top-[60%] right-[20%] w-6 h-6 text-yellow-400/60 animate-bounce-float-1" style={{ transform: 'rotate(45deg)' }} />
+        <LightningBolt className="absolute bottom-[35%] left-[25%] w-5 h-5 text-yellow-300/45 animate-bounce-float-2" style={{ transform: 'rotate(-135deg)' }} />
+        <LightningBolt className="absolute top-[10%] left-[40%] w-7 h-7 text-yellow-400/50 animate-bounce-float-3" style={{ transform: 'rotate(90deg)' }} />
+        <LightningBolt className="absolute bottom-[10%] right-[35%] w-8 h-8 text-yellow-300/55 animate-bounce-float-1" style={{ transform: 'rotate(-20deg)' }} />
+        
+        {/* Tiny bolts */}
+        <LightningBolt className="absolute top-[50%] left-[18%] w-4 h-4 text-yellow-400/65 animate-bounce-float-2" style={{ transform: 'rotate(160deg)' }} />
+        <LightningBolt className="absolute bottom-[45%] right-[28%] w-4 h-4 text-yellow-300/60 animate-bounce-float-3" style={{ transform: 'rotate(-70deg)' }} />
+        <LightningBolt className="absolute top-[75%] right-[45%] w-5 h-5 text-yellow-400/45 animate-bounce-float-1" style={{ transform: 'rotate(110deg)' }} />
+        <LightningBolt className="absolute top-[5%] right-[50%] w-6 h-6 text-yellow-300/50 animate-bounce-float-2" style={{ transform: 'rotate(-40deg)' }} />
       </div>
       
       <div className="max-w-2xl mx-auto relative z-10">
