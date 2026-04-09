@@ -17,7 +17,7 @@ const organisers = [
 
 export function OrganisersSection() {
   return (
-    <section className="py-8 px-4 bg-white">
+    <section className="py-8 px-4 bg-white/80 backdrop-blur-[1px]">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-semibold text-center mb-6 text-foreground">
           Organisers
