@@ -1,9 +1,34 @@
 import Image from "next/image"
 
+function LightningBolt({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+    >
+      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+    </svg>
+  )
+}
+
 export function FloorPlan() {
   return (
-    <section className="py-6 px-4 bg-primary">
-      <div className="max-w-2xl mx-auto">
+    <section className="py-6 px-4 bg-primary relative overflow-hidden">
+      {/* Background Lightning Bolts */}
+      <div className="absolute inset-0 pointer-events-none">
+        <LightningBolt className="absolute top-4 left-8 w-12 h-12 text-white/10" />
+        <LightningBolt className="absolute top-8 right-12 w-8 h-8 text-white/8" />
+        <LightningBolt className="absolute bottom-6 left-16 w-10 h-10 text-white/6" />
+        <LightningBolt className="absolute bottom-4 right-8 w-14 h-14 text-white/10" />
+        <LightningBolt className="absolute top-1/2 left-4 w-6 h-6 text-white/5" />
+        <LightningBolt className="absolute top-1/3 right-4 w-10 h-10 text-white/7" />
+        <LightningBolt className="absolute bottom-1/3 left-1/4 w-8 h-8 text-white/5" />
+        <LightningBolt className="absolute top-6 left-1/3 w-6 h-6 text-white/8" />
+        <LightningBolt className="absolute bottom-8 right-1/4 w-12 h-12 text-white/6" />
+      </div>
+      
+      <div className="max-w-2xl mx-auto relative z-10">
         <h2 className="text-xl md:text-2xl font-semibold text-center mb-4 text-white">
           Exhibition Floor Plan
         </h2>

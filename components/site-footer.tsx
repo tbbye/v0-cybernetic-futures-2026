@@ -28,9 +28,12 @@ export function SiteFooter() {
             </p>
           </div>
         </div>
-        <div className="mt-10 pt-8 border-t border-primary-foreground/20 text-center">
+        <div className="mt-10 pt-8 border-t border-primary-foreground/20 text-center space-y-2">
           <p className="text-sm text-primary-foreground/60">
-            &copy; 2026 Designing Novel Interactions. University of Melbourne.
+            &copy; 2026 Cybernetic Futures. University of Melbourne.
+          </p>
+          <p className="text-xs text-primary-foreground/40">
+            This website was created with assistance from v0 by Vercel, an AI-powered development tool.
           </p>
         </div>
       </div>
