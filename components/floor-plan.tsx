@@ -15,17 +15,17 @@ function LightningBolt({ className }: { className?: string }) {
 export function FloorPlan() {
   return (
     <section className="py-6 px-4 bg-primary relative overflow-hidden">
-      {/* Background Lightning Bolts */}
+      {/* Background Lightning Bolts - Yellow and Animated */}
       <div className="absolute inset-0 pointer-events-none">
-        <LightningBolt className="absolute top-4 left-8 w-12 h-12 text-white/10" />
-        <LightningBolt className="absolute top-8 right-12 w-8 h-8 text-white/8" />
-        <LightningBolt className="absolute bottom-6 left-16 w-10 h-10 text-white/6" />
-        <LightningBolt className="absolute bottom-4 right-8 w-14 h-14 text-white/10" />
-        <LightningBolt className="absolute top-1/2 left-4 w-6 h-6 text-white/5" />
-        <LightningBolt className="absolute top-1/3 right-4 w-10 h-10 text-white/7" />
-        <LightningBolt className="absolute bottom-1/3 left-1/4 w-8 h-8 text-white/5" />
-        <LightningBolt className="absolute top-6 left-1/3 w-6 h-6 text-white/8" />
-        <LightningBolt className="absolute bottom-8 right-1/4 w-12 h-12 text-white/6" />
+        <LightningBolt className="absolute top-4 left-8 w-12 h-12 text-yellow-400/60 animate-bounce-float-1" />
+        <LightningBolt className="absolute top-8 right-12 w-8 h-8 text-yellow-300/50 animate-bounce-float-2" />
+        <LightningBolt className="absolute bottom-6 left-16 w-10 h-10 text-yellow-400/40 animate-bounce-float-3" />
+        <LightningBolt className="absolute bottom-4 right-8 w-14 h-14 text-yellow-300/60 animate-bounce-float-1" />
+        <LightningBolt className="absolute top-1/2 left-4 w-6 h-6 text-yellow-400/35 animate-bounce-float-2" />
+        <LightningBolt className="absolute top-1/3 right-4 w-10 h-10 text-yellow-300/45 animate-bounce-float-3" />
+        <LightningBolt className="absolute bottom-1/3 left-1/4 w-8 h-8 text-yellow-400/40 animate-bounce-float-1" />
+        <LightningBolt className="absolute top-6 left-1/3 w-6 h-6 text-yellow-300/50 animate-bounce-float-2" />
+        <LightningBolt className="absolute bottom-8 right-1/4 w-12 h-12 text-yellow-400/45 animate-bounce-float-3" />
       </div>
       
       <div className="max-w-2xl mx-auto relative z-10">

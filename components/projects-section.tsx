@@ -18,15 +18,15 @@ const gameProjects = Array.from({ length: 20 }, (_, i) => ({
 
 export function ProjectsSection() {
   return (
-    <section className="py-20 px-4">
-      <div className="max-w-7xl mx-auto h-[calc(100vh-10rem)]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
+    <section className="py-8 px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Column - DNI Projects */}
-          <div className="flex flex-col h-full">
-            <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-foreground bg-background py-4 border-b border-border flex-shrink-0">
+          <div className="flex flex-col">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-foreground bg-background py-2 border-b border-border">
               Designing Novel Interactions
             </h2>
-            <div className="flex-1 overflow-y-auto pr-2 space-y-4 scrollbar-thin">
+            <div className="h-[75vh] overflow-y-auto pr-2 space-y-4 scrollbar-thin">
               {dniProjects.map((project) => (
                 <ProjectCard
                   key={project.id}
@@ -40,11 +40,11 @@ export function ProjectsSection() {
           </div>
 
           {/* Right Column - Game Design Projects */}
-          <div className="flex flex-col h-full">
-            <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-foreground bg-background py-4 border-b border-border flex-shrink-0">
+          <div className="flex flex-col">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-foreground bg-background py-2 border-b border-border">
               Game Design
             </h2>
-            <div className="flex-1 overflow-y-auto pr-2 space-y-4 scrollbar-thin">
+            <div className="h-[75vh] overflow-y-auto pr-2 space-y-4 scrollbar-thin">
               {gameProjects.map((project) => (
                 <ProjectCard
                   key={project.id}
