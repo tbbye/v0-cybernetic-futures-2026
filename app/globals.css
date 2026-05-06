@@ -170,6 +170,7 @@ button {
   align-items: center;
   justify-content: flex-end;
   perspective: 900px;
+  padding-right: 72px;
 }
 
 .signal-cube {
