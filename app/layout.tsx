@@ -9,7 +9,7 @@ const orbitron = Orbitron({
 })
 
 export const metadata: Metadata = {
-  title: 'Designing Novel Interactions 2026 | University of Melbourne',
+  title: 'Cybernetic Futures 2026: Distraction | University of Melbourne',
   description: 'University of Melbourne Showcase - Designing Novel Interactions and Game Design Exhibition 2026',
   generator: 'v0.app',
   icons: {
