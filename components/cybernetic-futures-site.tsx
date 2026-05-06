@@ -7,9 +7,14 @@ type ExhibitionProject = {
   category: "Designing Novel Interactions" | "Game Design"
   coordinate: string
   title: string
-  entries: [string, string, string]
   description: string
   team: string
+}
+
+type Organiser = {
+  id: string
+  name: string
+  role: string
 }
 
 const eventTickerText =
@@ -21,7 +26,6 @@ const projects: ExhibitionProject[] = [
     category: "Designing Novel Interactions",
     coordinate: "DNI-01 / GRID A3",
     title: "Haptic Feedback Glove System",
-    entries: ["TBA", "TBA", "TBA"],
     description:
       "An innovative exploration of human-computer interaction through novel input methods and immersive feedback systems. This project investigates the potential of wearable haptic devices to enhance user engagement in virtual environments. Our team developed a prototype glove that provides precise tactile feedback, allowing users to feel virtual textures and objects. The system integrates pressure sensors, vibration motors, and thermal elements to create a multi-sensory experience.",
     team: "Team Alpha",
@@ -31,37 +35,15 @@ const projects: ExhibitionProject[] = [
     category: "Designing Novel Interactions",
     coordinate: "DNI-02 / GRID B1",
     title: "Interactive Experience 2",
-    entries: ["TBA", "TBA", "TBA"],
     description:
       "A speculative interaction project exploring how responsive environments can shift attention, perception, and presence. The work combines physical interfaces, digital feedback, and experimental interaction patterns to question how users move through mediated spaces.",
     team: "Team Beta",
-  },
-  {
-    id: "dni-03",
-    category: "Designing Novel Interactions",
-    coordinate: "DNI-03 / GRID B4",
-    title: "Interactive Experience 3",
-    entries: ["TBA", "TBA", "TBA"],
-    description:
-      "A prototype-driven investigation into embodied interaction, sensory disruption, and the boundaries between human intention and machine response. The project invites users to test how subtle interface changes alter behaviour and interpretation.",
-    team: "Team Gamma",
-  },
-  {
-    id: "dni-04",
-    category: "Designing Novel Interactions",
-    coordinate: "DNI-04 / GRID C2",
-    title: "Interactive Experience 4",
-    entries: ["TBA", "TBA", "TBA"],
-    description:
-      "An experimental interface system that studies attention, feedback, and interactive ambiguity. The project uses real-time input, reactive visuals, and physical cues to produce a layered digital experience.",
-    team: "Team Delta",
   },
   {
     id: "game-01",
     category: "Game Design",
     coordinate: "GD-01 / GRID D1",
     title: "Game Project 1",
-    entries: ["TBA", "TBA", "TBA"],
     description:
       "A compelling game design project that pushes the boundaries of player engagement and narrative storytelling. The game explores how distraction, decision-making, and visual rhythm can influence the player’s sense of agency.",
     team: "Studio Phoenix",
@@ -71,30 +53,32 @@ const projects: ExhibitionProject[] = [
     category: "Game Design",
     coordinate: "GD-02 / GRID D3",
     title: "Game Project 2",
-    entries: ["TBA", "TBA", "TBA"],
     description:
       "A digital game experience focused on tension, movement, and player interpretation. The project examines how rule systems, feedback loops, and interactive uncertainty create meaningful play.",
     team: "Studio Hydra",
   },
+]
+
+const organisers: Organiser[] = [
   {
-    id: "game-03",
-    category: "Game Design",
-    coordinate: "GD-03 / GRID E2",
-    title: "Game Project 3",
-    entries: ["TBA", "TBA", "TBA"],
-    description:
-      "A game design prototype exploring atmosphere, player motivation, and emergent behaviour. The experience uses layered mechanics and environmental storytelling to create a distinct sense of progression.",
-    team: "Studio Neon",
+    id: "org-01",
+    name: "TBA",
+    role: "Exhibition Coordination",
   },
   {
-    id: "game-04",
-    category: "Game Design",
-    coordinate: "GD-04 / GRID F1",
-    title: "Game Project 4",
-    entries: ["TBA", "TBA", "TBA"],
-    description:
-      "An experimental playable system that investigates distraction as both obstacle and mechanic. Players must navigate competing signals, unstable feedback, and shifting objectives.",
-    team: "Studio Voltage",
+    id: "org-02",
+    name: "TBA",
+    role: "Curatorial Support",
+  },
+  {
+    id: "org-03",
+    name: "TBA",
+    role: "Technical Support",
+  },
+  {
+    id: "org-04",
+    name: "TBA",
+    role: "Event Assistance",
   },
 ]
 
@@ -124,8 +108,8 @@ export default function CyberneticFuturesSite() {
     }
 
     const animateCursorGlow = () => {
-      currentX += (targetX - currentX) * 0.16
-      currentY += (targetY - currentY) * 0.16
+      currentX += (targetX - currentX) * 0.14
+      currentY += (targetY - currentY) * 0.14
 
       if (cursorRef.current) {
         cursorRef.current.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`
@@ -157,10 +141,8 @@ export default function CyberneticFuturesSite() {
       <Hero />
 
       <section className="floor-plan-section" aria-labelledby="floor-plan-heading">
-        <div className="section-kicker">Navigation / Exhibition Map</div>
         <div className="section-heading-row">
           <h2 id="floor-plan-heading">Exhibition Floor Plan</h2>
-          <span className="coordinate-chip">MAP-00 / SUPERFLOOR</span>
         </div>
 
         <div className="floor-plan-frame">
@@ -172,6 +154,7 @@ export default function CyberneticFuturesSite() {
               <span className="floor-node node-four">AWARDS</span>
             </div>
           </div>
+
           <p className="floor-plan-caption">
             Placeholder floor plan. Coordinates shown on each project card can later be mapped to this exhibition layout.
           </p>
@@ -194,6 +177,21 @@ export default function CyberneticFuturesSite() {
         />
       </section>
 
+      <section className="organisers-section" aria-labelledby="organisers-heading">
+        <div className="section-heading-row">
+          <h2 id="organisers-heading">Organisers</h2>
+        </div>
+
+        <div className="organisers-grid">
+          {organisers.map((organiser) => (
+            <article key={organiser.id} className="organiser-card">
+              <h3>{organiser.name}</h3>
+              <p>{organiser.role}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <BottomTicker />
     </main>
   )
@@ -205,11 +203,10 @@ function Hero() {
       <div className="hero-copy">
         <p className="hero-eyebrow">University of Melbourne Showcase</p>
         <h1>Cybernetic Futures 2026: Distraction</h1>
-        <p className="hero-subheading">University of Melbourne</p>
       </div>
 
       <div className="hero-emblem" aria-hidden="true">
-        <CyberSkull />
+        <GearCluster />
       </div>
     </header>
   )
@@ -230,7 +227,6 @@ function ProjectColumn({
     <div className="project-column">
       <div className="column-heading">
         <h2>{title}</h2>
-        <span>{projects.length.toString().padStart(2, "0")} exhibits</span>
       </div>
 
       <div className="project-list">
@@ -271,15 +267,6 @@ function ProjectCard({
 
         <h3>{project.title}</h3>
 
-        <div className="entry-grid" aria-label="Exhibition text entries">
-          {project.entries.map((entry, index) => (
-            <div className="entry-pill" key={`${project.id}-entry-${index}`}>
-              <span>Entry {index + 1}</span>
-              <strong>{entry}</strong>
-            </div>
-          ))}
-        </div>
-
         <p className={`project-description ${expanded ? "expanded" : "collapsed"}`}>{project.description}</p>
 
         <p className="team-line">
@@ -298,68 +285,61 @@ function ProjectCard({
 function BottomTicker() {
   return (
     <aside className="bottom-ticker" aria-label="Event date, time and location">
-      <div className="ticker-label">Event Details</div>
       <div className="ticker-window">
-        <div className="ticker-vertical">
-          <span>{eventTickerText}</span>
-          <span>{eventTickerText}</span>
-          <span>{eventTickerText}</span>
-          <span>{eventTickerText}</span>
+        <div className="ticker-marquee">
+          <div className="ticker-track">
+            <span>{eventTickerText}</span>
+            <span className="ticker-separator">◆</span>
+            <span>{eventTickerText}</span>
+            <span className="ticker-separator">◆</span>
+            <span>{eventTickerText}</span>
+            <span className="ticker-separator">◆</span>
+            <span>{eventTickerText}</span>
+            <span className="ticker-separator">◆</span>
+          </div>
+
+          <div className="ticker-track" aria-hidden="true">
+            <span>{eventTickerText}</span>
+            <span className="ticker-separator">◆</span>
+            <span>{eventTickerText}</span>
+            <span className="ticker-separator">◆</span>
+            <span>{eventTickerText}</span>
+            <span className="ticker-separator">◆</span>
+            <span>{eventTickerText}</span>
+            <span className="ticker-separator">◆</span>
+          </div>
         </div>
       </div>
     </aside>
   )
 }
 
-function CyberSkull() {
+function GearCluster() {
   return (
-    <svg viewBox="0 0 260 260" role="img" aria-label="Pink cybernetic skull emblem">
-      <defs>
-        <filter id="pink-glow">
-          <feGaussianBlur stdDeviation="3.5" result="blur" />
-          <feMerge>
-            <feMergeNode in="blur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
+    <div className="gear-cluster">
+      <svg className="gear gear-large" viewBox="0 0 120 120" aria-hidden="true">
+        <g fill="none" stroke="currentColor" strokeWidth="6">
+          <circle cx="60" cy="60" r="18" />
+          <circle cx="60" cy="60" r="34" />
+          <path d="M60 8v16M60 96v16M8 60h16M96 60h16M23 23l11 11M86 86l11 11M97 23L86 34M34 86L23 97" />
+        </g>
+      </svg>
 
-      <path
-        d="M130 18 C74 18 40 56 40 110 C40 142 54 162 73 176 L73 213 L101 213 L101 193 L117 193 L117 213 L143 213 L143 193 L159 193 L159 213 L187 213 L187 176 C206 162 220 142 220 110 C220 56 186 18 130 18 Z"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="7"
-        strokeLinejoin="round"
-        filter="url(#pink-glow)"
-      />
+      <svg className="gear gear-medium" viewBox="0 0 100 100" aria-hidden="true">
+        <g fill="none" stroke="currentColor" strokeWidth="5">
+          <circle cx="50" cy="50" r="14" />
+          <circle cx="50" cy="50" r="28" />
+          <path d="M50 6v12M50 82v12M6 50h12M82 50h12M20 20l9 9M71 71l9 9M80 20l-9 9M29 71l-9 9" />
+        </g>
+      </svg>
 
-      <path
-        d="M77 106 L104 88 L126 108 L105 131 Z"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="6"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M183 106 L156 88 L134 108 L155 131 Z"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="6"
-        strokeLinejoin="round"
-      />
-
-      <path d="M130 126 L116 158 L144 158 Z" fill="none" stroke="currentColor" strokeWidth="6" strokeLinejoin="round" />
-
-      <path d="M91 174 L169 174" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
-      <path d="M102 190 L158 190" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
-
-      <path d="M22 130 L2 130" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
-      <path d="M258 130 L238 130" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
-      <path d="M130 2 L130 24" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
-      <path d="M130 236 L130 258" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
-
-      <circle cx="130" cy="130" r="118" fill="none" stroke="currentColor" strokeWidth="2" opacity="0.4" />
-      <circle cx="130" cy="130" r="84" fill="none" stroke="currentColor" strokeWidth="2" opacity="0.25" />
-    </svg>
+      <svg className="gear gear-small" viewBox="0 0 80 80" aria-hidden="true">
+        <g fill="none" stroke="currentColor" strokeWidth="4">
+          <circle cx="40" cy="40" r="12" />
+          <circle cx="40" cy="40" r="22" />
+          <path d="M40 6v10M40 64v10M6 40h10M64 40h10M16 16l7 7M57 57l7 7M64 16l-7 7M23 57l-7 7" />
+        </g>
+      </svg>
+    </div>
   )
 }
