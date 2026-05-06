@@ -17,6 +17,12 @@ type Organiser = {
   role: string
 }
 
+type ArchivePanel = {
+  id: string
+  label: string
+  subtitle: string
+}
+
 const eventTickerText =
   "Friday 29 May (11am–5pm: public showcase, 6–8pm: awards ceremony). Melbourne Connect, Superfloor, 700 Swanston St, Carlton VIC 3053"
 
@@ -40,6 +46,15 @@ const projects: ExhibitionProject[] = [
     team: "Team Beta",
   },
   {
+    id: "dni-03",
+    category: "Designing Novel Interactions",
+    coordinate: "D9",
+    title: "Danceblaster",
+    description:
+      "An interactive prototype that turns movement, rhythm, and physical expression into a playful technological encounter. The project investigates how embodiment, feedback, and performance can reshape everyday interactions.",
+    team: "Team PSP",
+  },
+  {
     id: "game-01",
     category: "Game Design",
     coordinate: "G1",
@@ -57,6 +72,15 @@ const projects: ExhibitionProject[] = [
       "An immersive game and narrative experience focused on reconstruction, perception, and virtual investigation. The project examines how environmental storytelling and sensory feedback influence belief, memory, and player interpretation.",
     team: "Studio Hydra",
   },
+  {
+    id: "game-03",
+    category: "Game Design",
+    coordinate: "D12",
+    title: "Fate.exe",
+    description:
+      "A speculative game exploring algorithmic judgment, choice, and system authority. The project asks whether players can resist computational fate and what agency remains when decisions are shaped by opaque rules.",
+    team: "Studio Delta",
+  },
 ]
 
 const organisers: Organiser[] = [
@@ -64,6 +88,24 @@ const organisers: Organiser[] = [
   { id: "org-02", name: "TBA", role: "Curatorial Support" },
   { id: "org-03", name: "TBA", role: "Technical Support" },
   { id: "org-04", name: "TBA", role: "Event Assistance" },
+]
+
+const archivePanels: ArchivePanel[] = [
+  {
+    id: "archive-01",
+    label: "Past Showcase",
+    subtitle: "Interactive works / archive feed",
+  },
+  {
+    id: "archive-02",
+    label: "Prototype Table",
+    subtitle: "Process, testing, exhibition builds",
+  },
+  {
+    id: "archive-03",
+    label: "Awards Night",
+    subtitle: "Captured moments / event memory",
+  },
 ]
 
 export default function CyberneticFuturesSite() {
@@ -92,8 +134,8 @@ export default function CyberneticFuturesSite() {
     }
 
     const animateCursorGlow = () => {
-      currentX += (targetX - currentX) * 0.14
-      currentY += (targetY - currentY) * 0.14
+      currentX += (targetX - currentX) * 0.16
+      currentY += (targetY - currentY) * 0.16
 
       if (cursorRef.current) {
         cursorRef.current.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`
@@ -188,7 +230,46 @@ function Hero() {
         <p className="hero-eyebrow">University of Melbourne Showcase</p>
         <h1>Cybernetic Futures 2026: Distraction</h1>
       </div>
+
+      <HeaderFlavorVisual />
     </header>
+  )
+}
+
+function HeaderFlavorVisual() {
+  return (
+    <div className="header-flavor" aria-hidden="true">
+      <div className="flavor-screen">
+        <div className="screen-noise" />
+        <div className="scan-line" />
+        <div className="screen-copy">
+          <span className="screen-kicker">Archive Signal</span>
+          <strong>Showcase Memory Loop</strong>
+          <p>Past installations / process / event atmosphere</p>
+        </div>
+
+        <div className="signal-cube">
+          <div className="signal-cube-face face-front" />
+          <div className="signal-cube-face face-back" />
+          <div className="signal-cube-face face-left" />
+          <div className="signal-cube-face face-right" />
+          <div className="signal-cube-face face-top" />
+          <div className="signal-cube-face face-bottom" />
+        </div>
+      </div>
+
+      <div className="archive-strip">
+        {archivePanels.map((panel) => (
+          <article key={panel.id} className="archive-card">
+            <div className={`archive-card-media ${panel.id}`} />
+            <div className="archive-card-copy">
+              <span>{panel.label}</span>
+              <p>{panel.subtitle}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
   )
 }
 
