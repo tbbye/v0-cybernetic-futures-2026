@@ -17,12 +17,6 @@ type Organiser = {
   role: string
 }
 
-type ArchivePanel = {
-  id: string
-  label: string
-  subtitle: string
-}
-
 const eventTickerText =
   "Friday 29 May (11am–5pm: public showcase, 6–8pm: awards ceremony). Melbourne Connect, Superfloor, 700 Swanston St, Carlton VIC 3053"
 
@@ -88,24 +82,6 @@ const organisers: Organiser[] = [
   { id: "org-02", name: "TBA", role: "Curatorial Support" },
   { id: "org-03", name: "TBA", role: "Technical Support" },
   { id: "org-04", name: "TBA", role: "Event Assistance" },
-]
-
-const archivePanels: ArchivePanel[] = [
-  {
-    id: "archive-01",
-    label: "Past Showcase",
-    subtitle: "Interactive works / archive feed",
-  },
-  {
-    id: "archive-02",
-    label: "Prototype Table",
-    subtitle: "Process, testing, exhibition builds",
-  },
-  {
-    id: "archive-03",
-    label: "Awards Night",
-    subtitle: "Captured moments / event memory",
-  },
 ]
 
 export default function CyberneticFuturesSite() {
@@ -182,7 +158,8 @@ export default function CyberneticFuturesSite() {
           </div>
 
           <p className="floor-plan-caption">
-            Placeholder floor plan. Coordinates shown on each project card can later be mapped to this exhibition layout.
+            Placeholder floor plan. Coordinates shown on each project card can later be mapped to this exhibition
+            layout.
           </p>
         </div>
       </section>
@@ -231,43 +208,21 @@ function Hero() {
         <h1>Cybernetic Futures 2026: Distraction</h1>
       </div>
 
-      <HeaderFlavorVisual />
+      <HeaderCubeVisual />
     </header>
   )
 }
 
-function HeaderFlavorVisual() {
+function HeaderCubeVisual() {
   return (
-    <div className="header-flavor" aria-hidden="true">
-      <div className="flavor-screen">
-        <div className="screen-noise" />
-        <div className="scan-line" />
-        <div className="screen-copy">
-          <span className="screen-kicker">Archive Signal</span>
-          <strong>Showcase Memory Loop</strong>
-          <p>Past installations / process / event atmosphere</p>
-        </div>
-
-        <div className="signal-cube">
-          <div className="signal-cube-face face-front" />
-          <div className="signal-cube-face face-back" />
-          <div className="signal-cube-face face-left" />
-          <div className="signal-cube-face face-right" />
-          <div className="signal-cube-face face-top" />
-          <div className="signal-cube-face face-bottom" />
-        </div>
-      </div>
-
-      <div className="archive-strip">
-        {archivePanels.map((panel) => (
-          <article key={panel.id} className="archive-card">
-            <div className={`archive-card-media ${panel.id}`} />
-            <div className="archive-card-copy">
-              <span>{panel.label}</span>
-              <p>{panel.subtitle}</p>
-            </div>
-          </article>
-        ))}
+    <div className="header-cube-visual" aria-hidden="true">
+      <div className="signal-cube">
+        <div className="signal-cube-face face-front" />
+        <div className="signal-cube-face face-back" />
+        <div className="signal-cube-face face-left" />
+        <div className="signal-cube-face face-right" />
+        <div className="signal-cube-face face-top" />
+        <div className="signal-cube-face face-bottom" />
       </div>
     </div>
   )
