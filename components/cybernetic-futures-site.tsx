@@ -20,63 +20,29 @@ type Organiser = {
 const eventTickerText =
   "Friday 29 May (11am–5pm: public showcase, 6–8pm: awards ceremony). Melbourne Connect, Superfloor, 700 Swanston St, Carlton VIC 3053"
 
-const projects: ExhibitionProject[] = [
-  {
-    id: "dni-01",
-    category: "Designing Novel Interactions",
-    coordinate: "D5",
-    title: "Soul Capture Communicator",
-    description:
-      "A future-facing artefact that invites participants to imagine how communication with absent or departed presences could become tactile, intimate, and emotionally charged. The work explores memory, ritual, and speculative interaction design through a responsive interface.",
-    team: "Team Alpha",
-  },
-  {
-    id: "dni-02",
-    category: "Designing Novel Interactions",
-    coordinate: "D6",
-    title: "Frank",
-    description:
-      "A provocative interaction project using a tangible object to examine how users form attachments to machine-like entities. The project asks how agency, empathy, and discomfort shift when playful or uncanny artefacts begin to feel socially present.",
-    team: "Team Beta",
-  },
-  {
-    id: "dni-03",
-    category: "Designing Novel Interactions",
-    coordinate: "D9",
-    title: "Danceblaster",
-    description:
-      "An interactive prototype that turns movement, rhythm, and physical expression into a playful technological encounter. The project investigates how embodiment, feedback, and performance can reshape everyday interactions.",
-    team: "Team PSP",
-  },
-  {
-    id: "game-01",
-    category: "Game Design",
-    coordinate: "G1",
-    title: "Who Pulls the Strings?",
-    description:
-      "A game design project exploring control, manipulation, and autonomy through interactive systems. Players are invited to question who directs actions in a mixed human-machine environment and where authorship truly sits.",
-    team: "Studio Phoenix",
-  },
-  {
-    id: "game-02",
-    category: "Game Design",
-    coordinate: "D8",
-    title: "Insight",
-    description:
-      "An immersive game and narrative experience focused on reconstruction, perception, and virtual investigation. The project examines how environmental storytelling and sensory feedback influence belief, memory, and player interpretation.",
-    team: "Studio Hydra",
-  },
-  {
-    id: "game-03",
-    category: "Game Design",
-    coordinate: "D12",
-    title: "Fate.exe",
-    description:
-      "A speculative game exploring algorithmic judgment, choice, and system authority. The project asks whether players can resist computational fate and what agency remains when decisions are shaped by opaque rules.",
-    team: "Studio Delta",
-  },
-]
+const makePlaceholderProjects = (
+  category: ExhibitionProject["category"],
+  idPrefix: "dni" | "game",
+  coordinatePrefix: "DNI" | "GD",
+): ExhibitionProject[] =>
+  Array.from({ length: 15 }, (_, index) => {
+    const number = String(index + 1).padStart(2, "0")
 
+    return {
+      id: `${idPrefix}-${number}`,
+      category,
+      coordinate: `${coordinatePrefix}${index + 1}`,
+      title: `Project ${number}`,
+      description:
+        `Placeholder description for ${category} project ${number}. Replace this with the final project description when available.`,
+      team: "TBA",
+    }
+  })
+
+const projects: ExhibitionProject[] = [
+  ...makePlaceholderProjects("Designing Novel Interactions", "dni", "DNI"),
+  ...makePlaceholderProjects("Game Design", "game", "GD"),
+]
 const organisers: Organiser[] = [
   { id: "org-01", name: "TBA", role: "Exhibition Coordination" },
   { id: "org-02", name: "TBA", role: "Curatorial Support" },
