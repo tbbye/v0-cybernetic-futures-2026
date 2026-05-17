@@ -11,6 +11,7 @@ type ExhibitionProject = {
   description: string
   team: string
   materials?: string
+  image?: string
 }
 
 type Organiser = {
@@ -53,7 +54,8 @@ const gameDesignProjects: ExhibitionProject[] = [
     category: "Game Design",
     coordinate: "G1",
     title: "Project 01",
-    description: "Placeholder description for Game Design project 01. Replace this with the final project description when available.",
+    description:
+      "Placeholder description for Game Design project 01. Replace this with the final project description when available.",
     team: "TBA",
   },
   {
@@ -61,6 +63,7 @@ const gameDesignProjects: ExhibitionProject[] = [
     category: "Game Design",
     coordinate: "G2",
     title: "Space Cats",
+    image: "/project-images/Space%20Cats.jpg",
     premise:
       "Space Cats is a 3–5 player social deduction and hand management game. Play as one of seven Catronauts stranded in space and race to be the first one home!",
     description:
@@ -74,6 +77,7 @@ const gameDesignProjects: ExhibitionProject[] = [
     category: "Game Design",
     coordinate: "G3",
     title: "Starchitect",
+    image: "/project-images/Starchitects.png",
     premise:
       "Boom! The Big Bang just happened: There’s work to do! Race against other space-fame-hungry Starchitects to create new constellations and write your name in the stars.",
     description:
@@ -87,7 +91,8 @@ const gameDesignProjects: ExhibitionProject[] = [
     category: "Game Design",
     coordinate: "G4",
     title: "Project 04",
-    description: "Placeholder description for Game Design project 04. Replace this with the final project description when available.",
+    description:
+      "Placeholder description for Game Design project 04. Replace this with the final project description when available.",
     team: "TBA",
   },
   {
@@ -95,7 +100,8 @@ const gameDesignProjects: ExhibitionProject[] = [
     category: "Game Design",
     coordinate: "G5",
     title: "Project 05",
-    description: "Placeholder description for Game Design project 05. Replace this with the final project description when available.",
+    description:
+      "Placeholder description for Game Design project 05. Replace this with the final project description when available.",
     team: "TBA",
   },
   {
@@ -103,6 +109,7 @@ const gameDesignProjects: ExhibitionProject[] = [
     category: "Game Design",
     coordinate: "G6",
     title: "Fame Frenzy",
+    image: "/project-images/Fame%20Frenzy.jpg",
     premise:
       "Fame Frenzy is a fast-paced card game for 2–6 players, taking place in a world where clout is everything.",
     description:
@@ -116,7 +123,8 @@ const gameDesignProjects: ExhibitionProject[] = [
     category: "Game Design",
     coordinate: "G7",
     title: "Project 07",
-    description: "Placeholder description for Game Design project 07. Replace this with the final project description when available.",
+    description:
+      "Placeholder description for Game Design project 07. Replace this with the final project description when available.",
     team: "TBA",
   },
   {
@@ -124,7 +132,8 @@ const gameDesignProjects: ExhibitionProject[] = [
     category: "Game Design",
     coordinate: "G8",
     title: "Project 08",
-    description: "Placeholder description for Game Design project 08. Replace this with the final project description when available.",
+    description:
+      "Placeholder description for Game Design project 08. Replace this with the final project description when available.",
     team: "TBA",
   },
   {
@@ -132,7 +141,8 @@ const gameDesignProjects: ExhibitionProject[] = [
     category: "Game Design",
     coordinate: "G9",
     title: "Project 09",
-    description: "Placeholder description for Game Design project 09. Replace this with the final project description when available.",
+    description:
+      "Placeholder description for Game Design project 09. Replace this with the final project description when available.",
     team: "TBA",
   },
   {
@@ -140,7 +150,8 @@ const gameDesignProjects: ExhibitionProject[] = [
     category: "Game Design",
     coordinate: "G10",
     title: "Project 10",
-    description: "Placeholder description for Game Design project 10. Replace this with the final project description when available.",
+    description:
+      "Placeholder description for Game Design project 10. Replace this with the final project description when available.",
     team: "TBA",
   },
   {
@@ -148,7 +159,8 @@ const gameDesignProjects: ExhibitionProject[] = [
     category: "Game Design",
     coordinate: "G11",
     title: "Project 11",
-    description: "Placeholder description for Game Design project 11. Replace this with the final project description when available.",
+    description:
+      "Placeholder description for Game Design project 11. Replace this with the final project description when available.",
     team: "TBA",
   },
   {
@@ -156,7 +168,8 @@ const gameDesignProjects: ExhibitionProject[] = [
     category: "Game Design",
     coordinate: "G12",
     title: "Project 12",
-    description: "Placeholder description for Game Design project 12. Replace this with the final project description when available.",
+    description:
+      "Placeholder description for Game Design project 12. Replace this with the final project description when available.",
     team: "TBA",
   },
   {
@@ -164,7 +177,8 @@ const gameDesignProjects: ExhibitionProject[] = [
     category: "Game Design",
     coordinate: "G13",
     title: "Project 13",
-    description: "Placeholder description for Game Design project 13. Replace this with the final project description when available.",
+    description:
+      "Placeholder description for Game Design project 13. Replace this with the final project description when available.",
     team: "TBA",
   },
   {
@@ -172,6 +186,7 @@ const gameDesignProjects: ExhibitionProject[] = [
     category: "Game Design",
     coordinate: "G14",
     title: "Market Movers",
+    image: "/project-images/Market%20Movers.jpg",
     premise:
       "When corruption is the aim and collusion is the game, do you have what it takes to lie, cheat, and back-stab your way to the top?",
     description:
@@ -185,6 +200,7 @@ const gameDesignProjects: ExhibitionProject[] = [
     category: "Game Design",
     coordinate: "G15",
     title: "Voltage",
+    image: "/project-images/Voltage.jpeg",
     premise:
       "In a neon-drenched future, rival energy corporations battle to dominate the city’s power grid by redirecting laser beams, deploying mirrors, and sabotaging opponents.",
     description:
@@ -393,10 +409,14 @@ function ProjectCard({
 }) {
   return (
     <article className={`project-card ${expanded ? "is-expanded" : ""}`}>
-      <div className="project-image-placeholder" aria-label={`Placeholder image for ${project.title}`}>
-        <div className="image-crosshair">
-          <span />
-        </div>
+      <div className={`project-image-placeholder ${project.image ? "has-image" : ""}`}>
+        {project.image ? (
+          <img src={project.image} alt={`${project.title} project image`} />
+        ) : (
+          <div className="image-crosshair">
+            <span />
+          </div>
+        )}
       </div>
 
       <div className="project-card-body">
