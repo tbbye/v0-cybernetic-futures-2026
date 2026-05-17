@@ -7,8 +7,10 @@ type ExhibitionProject = {
   category: "Designing Novel Interactions" | "Game Design"
   coordinate: string
   title: string
+  premise?: string
   description: string
   team: string
+  materials?: string
 }
 
 type Organiser = {
@@ -23,7 +25,7 @@ const eventTickerText =
 const makePlaceholderProjects = (
   category: ExhibitionProject["category"],
   idPrefix: "dni" | "game",
-  coordinatePrefix: "DNI" | "GD",
+  coordinatePrefix: "DNI" | "G",
 ): ExhibitionProject[] =>
   Array.from({ length: 15 }, (_, index) => {
     const number = String(index + 1).padStart(2, "0")
@@ -39,64 +41,165 @@ const makePlaceholderProjects = (
     }
   })
 
+const designingNovelInteractionsProjects: ExhibitionProject[] = makePlaceholderProjects(
+  "Designing Novel Interactions",
+  "dni",
+  "DNI",
+)
+
+const gameDesignProjects: ExhibitionProject[] = [
+  {
+    id: "game-01",
+    category: "Game Design",
+    coordinate: "G1",
+    title: "Project 01",
+    description: "Placeholder description for Game Design project 01. Replace this with the final project description when available.",
+    team: "TBA",
+  },
+  {
+    id: "game-02",
+    category: "Game Design",
+    coordinate: "G2",
+    title: "Space Cats",
+    premise:
+      "Space Cats is a 3–5 player social deduction and hand management game. Play as one of seven Catronauts stranded in space and race to be the first one home!",
+    description:
+      "Space Cats' primary objective is to build your spaceship and be the first Catronaut back on Earth. Each player requires a unique combination of ship parts, decided by a randomly drawn spaceship schematic, though multiple players may be gunning for the same parts. Players are assigned one Catronaut with special abilities that can propel their progress or slow others down. Players must track tokens, cards, action histories, and behaviours, reinforcing the theme of distraction.",
+    team: "Tyra Saavedra, Katja Zumpe, Sabrina Cahyarani",
+    materials:
+      "Cards made with Clip Studio Paint, Canva, paper, printer, and laminator. Tokens made with Bambu Lab 3D printer. Sell sheet and rule sheet made with Clip Studio Paint, Canva, paper, printer, and binder. Spaceship schematics made with Canva, Google Slides, paper, printer, and laser cutter. Physical ship parts made with AutoCAD, Bambu Lab 3D Printer, and spray paint.",
+  },
+  {
+    id: "game-03",
+    category: "Game Design",
+    coordinate: "G3",
+    title: "Starchitect",
+    premise:
+      "Boom! The Big Bang just happened: There’s work to do! Race against other space-fame-hungry Starchitects to create new constellations and write your name in the stars.",
+    description:
+      "Make your claim through the big-bang space race by creating the most constellations in the system. Place, claim and battle for high-value space realty, play powerful Planet cards against star-struck opponents, and mix up the planisphere with a myriad of space conditions to become the best Starchitect.",
+    team: "Phoebe Biggin, Ryan Pham, Matthew McConnell",
+    materials:
+      "Components include game board panels, 1 dice, 120 star tokens, 12 special star tokens, 10 Environment cards, 60 Constellation cards, 40 Planet cards, score tokens, rules book, box, and pouches. Tools used include Adobe Illustrator, Adobe InDesign, Adobe Photoshop, TinkerCAD, Rhino 3D, laser cutter, 3D printer, and plotter printer.",
+  },
+  {
+    id: "game-04",
+    category: "Game Design",
+    coordinate: "G4",
+    title: "Project 04",
+    description: "Placeholder description for Game Design project 04. Replace this with the final project description when available.",
+    team: "TBA",
+  },
+  {
+    id: "game-05",
+    category: "Game Design",
+    coordinate: "G5",
+    title: "Project 05",
+    description: "Placeholder description for Game Design project 05. Replace this with the final project description when available.",
+    team: "TBA",
+  },
+  {
+    id: "game-06",
+    category: "Game Design",
+    coordinate: "G6",
+    title: "Fame Frenzy",
+    premise:
+      "Fame Frenzy is a fast-paced card game for 2–6 players, taking place in a world where clout is everything.",
+    description:
+      "Fame Frenzy is a turn-based card game where each player’s goal is to accumulate the highest number of fan tokens before the End card is drawn. Players begin with five tokens and a Character card, then choose between safer Action cards and riskier Sabotage cards that can steal tokens, change turn order, or target opponents. The theme of distraction appears through uncertainty, temptation, and high-stakes choices.",
+    team: "Uchai Lee, Seoyoung Min, Yeongseo Lee",
+    materials:
+      "Game components include 38 Action cards, 25 Sabotage cards, 6 Character cards, 60 tokens, and a manual. Cards were made in Figma, printed on 300gsm paper, and placed into transparent card sleeves.",
+  },
+  {
+    id: "game-07",
+    category: "Game Design",
+    coordinate: "G7",
+    title: "Project 07",
+    description: "Placeholder description for Game Design project 07. Replace this with the final project description when available.",
+    team: "TBA",
+  },
+  {
+    id: "game-08",
+    category: "Game Design",
+    coordinate: "G8",
+    title: "Project 08",
+    description: "Placeholder description for Game Design project 08. Replace this with the final project description when available.",
+    team: "TBA",
+  },
+  {
+    id: "game-09",
+    category: "Game Design",
+    coordinate: "G9",
+    title: "Project 09",
+    description: "Placeholder description for Game Design project 09. Replace this with the final project description when available.",
+    team: "TBA",
+  },
+  {
+    id: "game-10",
+    category: "Game Design",
+    coordinate: "G10",
+    title: "Project 10",
+    description: "Placeholder description for Game Design project 10. Replace this with the final project description when available.",
+    team: "TBA",
+  },
+  {
+    id: "game-11",
+    category: "Game Design",
+    coordinate: "G11",
+    title: "Project 11",
+    description: "Placeholder description for Game Design project 11. Replace this with the final project description when available.",
+    team: "TBA",
+  },
+  {
+    id: "game-12",
+    category: "Game Design",
+    coordinate: "G12",
+    title: "Project 12",
+    description: "Placeholder description for Game Design project 12. Replace this with the final project description when available.",
+    team: "TBA",
+  },
+  {
+    id: "game-13",
+    category: "Game Design",
+    coordinate: "G13",
+    title: "Project 13",
+    description: "Placeholder description for Game Design project 13. Replace this with the final project description when available.",
+    team: "TBA",
+  },
+  {
+    id: "game-14",
+    category: "Game Design",
+    coordinate: "G14",
+    title: "Market Movers",
+    premise:
+      "When corruption is the aim and collusion is the game, do you have what it takes to lie, cheat, and back-stab your way to the top?",
+    description:
+      "Market Movers is a competitive card-slinging hidden-role game where players manipulate the value of companies to fulfil daily Objectives and long-term Roles. Set around the charmingly clunky early internet, players place face-down Movers, secretly select Objectives, and reveal lies, backstabs, and corporate manipulation as the market opens.",
+    team: "Ethan Wang, Leo Wei, Alex Vu",
+    materials:
+      "Cards use 600gsm hand-cut cardstock with colour-printed fronts and backs. Player mats and company placemats use 1mm hand-cut cardboard with colour-printed fronts and backs. The valuation tracker uses 3mm timber, laser cutting, book-binder folding, and colour-printed paper. Company tokens use 6mm pony beads. Tools used include Affinity, laser cutter, printer, and general stationery.",
+  },
+  {
+    id: "game-15",
+    category: "Game Design",
+    coordinate: "G15",
+    title: "Voltage",
+    premise:
+      "In a neon-drenched future, rival energy corporations battle to dominate the city’s power grid by redirecting laser beams, deploying mirrors, and sabotaging opponents.",
+    description:
+      "In Voltage, 2–4 players take the role of rival cyberpunk energy corporations competing to control a futuristic city’s power grid. Each player has a fixed laser emitter and must route their beam through three shared checkpoints. Players place mirrors, rotate mirrors, block beams with walls, and use special tokens to remove obstacles or take two actions in one turn.",
+    team: "Arnav Rajesh Salian, Minh Hung Nguyen, Alex Okula",
+    materials:
+      "Game components include tokens, grid board, power companies, mirror tiles, and wall tiles. Tools and software used include laser cutter and Blender.",
+  },
+]
+
 const projects: ExhibitionProject[] = [
-  ...makePlaceholderProjects("Designing Novel Interactions", "dni", "DNI"),
-const gameDesignProjects: ExhibitionProject[] = makePlaceholderProjects("Game Design", "game", "GD").map((project) => {
-  if (project.id === "game-02") {
-    return {
-      ...project,
-      coordinate: "G2",
-      title: "Space Cats",
-      description:
-        "Space Cats' primary objective is to build your spaceship and be the first Catronaut back on Earth. Each player requires a unique combination of ship parts, decided by a randomly drawn spaceship schematic, though multiple players may be gunning for the same parts. Players are each assigned one Catronaut with special abilities that can propel their progress or slow others down. Players must track tokens, cards, action histories, and behaviours, reinforcing the theme of distraction.",
-      team: "Tyra Saavedra, Katja Zumpe, Sabrina Cahyarani",
-    }
-  }
-
-  if (project.id === "game-06") {
-    return {
-      ...project,
-      coordinate: "G6",
-      title: "Fame Frenzy",
-      description:
-        "Fame Frenzy is a turn-based card game where each player’s goal is to accumulate the highest number of fan tokens before the End card is drawn. Players choose between safer Action cards and riskier Sabotage cards that can steal tokens, change turn order, or target opponents. The theme of distraction appears through uncertainty, temptation, and high-stakes choices.",
-      team: "Uchai Lee, Seoyoung Min, Yeongseo Lee",
-    }
-  }
-
-  if (project.id === "game-14") {
-    return {
-      ...project,
-      coordinate: "G14",
-      title: "Market Movers",
-      description:
-        "Market Movers is a competitive hidden-role card game where players manipulate company values to fulfil daily Objectives and long-term Roles. Set around the early internet, players place face-down Movers, secretly select Objectives, and reveal lies, backstabs, and corporate manipulation as the market opens.",
-      team: "Ethan Wang, Leo Wei, Alex Vu",
-    }
-  }
-
-  if (project.id === "game-15") {
-    return {
-      ...project,
-      coordinate: "G15",
-      title: "Voltage",
-      description:
-        "In Voltage, 2–4 players are rival cyberpunk energy corporations competing to control a futuristic city’s power grid. Each player has a fixed laser emitter and must route their beam through three shared checkpoints by placing mirrors, rotating mirrors, blocking beams with walls, and using special tokens.",
-      team: "Arnav Rajesh Salian, Minh Hung Nguyen, Alex Okula",
-    }
-  }
-
-  return {
-    ...project,
-    coordinate: `G${project.id.split("-")[1]}`,
-  }
-})
-
-const projects: ExhibitionProject[] = [
-  ...makePlaceholderProjects("Designing Novel Interactions", "dni", "DNI"),
+  ...designingNovelInteractionsProjects,
   ...gameDesignProjects,
 ]
-]
+
 const organisers: Organiser[] = [
   { id: "org-01", name: "TBA", role: "Exhibition Coordination" },
   { id: "org-02", name: "TBA", role: "Curatorial Support" },
@@ -303,12 +406,28 @@ function ProjectCard({
 
         <h3>{project.title}</h3>
 
-        <p className={`project-description ${expanded ? "expanded" : "collapsed"}`}>{project.description}</p>
+        <p className={`project-description ${expanded ? "expanded" : "collapsed"}`}>
+          {project.description}
+        </p>
+
+        {expanded && project.premise ? (
+          <p className="team-line">
+            <span>Premise</span>
+            {project.premise}
+          </p>
+        ) : null}
 
         <p className="team-line">
           <span>Group members</span>
           {project.team}
         </p>
+
+        {expanded && project.materials ? (
+          <p className="team-line">
+            <span>Materials and tools</span>
+            {project.materials}
+          </p>
+        ) : null}
 
         <button className="read-more-button" type="button" onClick={onToggle} aria-expanded={expanded}>
           {expanded ? "Show less" : "Read more"}
