@@ -407,6 +407,9 @@ function ProjectCard({
   expanded: boolean
   onToggle: () => void
 }) {
+  const introText = project.premise ?? project.description
+  const descriptionText = project.premise ? project.description : ""
+
   return (
     <article className={`project-card ${expanded ? "is-expanded" : ""}`}>
       <div className={`project-image-placeholder ${project.image ? "has-image" : ""}`}>
@@ -427,13 +430,13 @@ function ProjectCard({
         <h3>{project.title}</h3>
 
         <p className={`project-description ${expanded ? "expanded" : "collapsed"}`}>
-          {project.description}
+          {introText}
         </p>
 
-        {expanded && project.premise ? (
+        {expanded && descriptionText ? (
           <p className="team-line">
-            <span>Premise</span>
-            {project.premise}
+            <span>Description</span>
+            {descriptionText}
           </p>
         ) : null}
 
