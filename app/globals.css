@@ -111,14 +111,18 @@ button {
   gap: 36px;
   padding: 76px clamp(26px, 4vw, 72px);
   background:
-    repeating-linear-gradient(
+    linear-gradient(rgba(0, 0, 0, 0.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.075) 1px, transparent 1px),
+    linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0.08) 0,
-      rgba(0, 0, 0, 0.08) 1px,
-      transparent 1px,
-      transparent 18px
-    ),
-    var(--cyber-green);
+      #32f20f 0%,
+      #eaff00 48%,
+      #32f20f 100%
+    );
+  background-size:
+    9px 9px,
+    9px 9px,
+    auto;
   color: #020202;
   border-bottom: 1px solid rgba(0, 0, 0, 0.22);
   overflow: hidden;
