@@ -41,7 +41,61 @@ const makePlaceholderProjects = (
 
 const projects: ExhibitionProject[] = [
   ...makePlaceholderProjects("Designing Novel Interactions", "dni", "DNI"),
-  ...makePlaceholderProjects("Game Design", "game", "GD"),
+const gameDesignProjects: ExhibitionProject[] = makePlaceholderProjects("Game Design", "game", "GD").map((project) => {
+  if (project.id === "game-02") {
+    return {
+      ...project,
+      coordinate: "G2",
+      title: "Space Cats",
+      description:
+        "Space Cats' primary objective is to build your spaceship and be the first Catronaut back on Earth. Each player requires a unique combination of ship parts, decided by a randomly drawn spaceship schematic, though multiple players may be gunning for the same parts. Players are each assigned one Catronaut with special abilities that can propel their progress or slow others down. Players must track tokens, cards, action histories, and behaviours, reinforcing the theme of distraction.",
+      team: "Tyra Saavedra, Katja Zumpe, Sabrina Cahyarani",
+    }
+  }
+
+  if (project.id === "game-06") {
+    return {
+      ...project,
+      coordinate: "G6",
+      title: "Fame Frenzy",
+      description:
+        "Fame Frenzy is a turn-based card game where each player’s goal is to accumulate the highest number of fan tokens before the End card is drawn. Players choose between safer Action cards and riskier Sabotage cards that can steal tokens, change turn order, or target opponents. The theme of distraction appears through uncertainty, temptation, and high-stakes choices.",
+      team: "Uchai Lee, Seoyoung Min, Yeongseo Lee",
+    }
+  }
+
+  if (project.id === "game-14") {
+    return {
+      ...project,
+      coordinate: "G14",
+      title: "Market Movers",
+      description:
+        "Market Movers is a competitive hidden-role card game where players manipulate company values to fulfil daily Objectives and long-term Roles. Set around the early internet, players place face-down Movers, secretly select Objectives, and reveal lies, backstabs, and corporate manipulation as the market opens.",
+      team: "Ethan Wang, Leo Wei, Alex Vu",
+    }
+  }
+
+  if (project.id === "game-15") {
+    return {
+      ...project,
+      coordinate: "G15",
+      title: "Voltage",
+      description:
+        "In Voltage, 2–4 players are rival cyberpunk energy corporations competing to control a futuristic city’s power grid. Each player has a fixed laser emitter and must route their beam through three shared checkpoints by placing mirrors, rotating mirrors, blocking beams with walls, and using special tokens.",
+      team: "Arnav Rajesh Salian, Minh Hung Nguyen, Alex Okula",
+    }
+  }
+
+  return {
+    ...project,
+    coordinate: `G${project.id.split("-")[1]}`,
+  }
+})
+
+const projects: ExhibitionProject[] = [
+  ...makePlaceholderProjects("Designing Novel Interactions", "dni", "DNI"),
+  ...gameDesignProjects,
+]
 ]
 const organisers: Organiser[] = [
   { id: "org-01", name: "TBA", role: "Exhibition Coordination" },
